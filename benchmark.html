@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>benchmark_with_exp</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>benchmark</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11832,61 +11832,6 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Ensemble-Learning">Ensemble Learning<a class="anchor-link" href="#Ensemble-Learning">&#182;</a></h2><p>Decision trees can be simple, but often produce noisy or weak classifiers. The idea behind ensemble learning is to generate multiple hypotheses and combine them to a single classifier. When these hypotheses are independent, averaging reduces the variance of the final model.</p>
-<h2 id="Bootstrap-Aggregating-(Bagging)">Bootstrap Aggregating (Bagging)<a class="anchor-link" href="#Bootstrap-Aggregating-(Bagging)">&#182;</a></h2><ul>
-<li>Bootstrap sampling: Given a dataset D containing N samples, a sub-dataset Dsub is created by drawing N samples at random with replacement from D.</li>
-<li>K bootstrap samples from D are created.</li>
-<li>A distinct model for each bootstrap is fit.</li>
-<li>A test sample is classified by averaging the prediction (or majority vote).</li>
-</ul>
-<h2 id="Random-Forests">Random Forests<a class="anchor-link" href="#Random-Forests">&#182;</a></h2><p>Random Forests are specifically designed for decision trees. It introduces two sources of randomness:</p>
-<ul>
-<li>Bagging</li>
-<li>Random input features: At each node, the best split is obtained from a random subset of features instead of all the features.</li>
-</ul>
-<h3 id="Building-a-forest">Building a forest<a class="anchor-link" href="#Building-a-forest">&#182;</a></h3><p><img src="./figures/rf.png" height="300" width="600" alt="drawing"/></p>
-<h2 id="Extremely-Randomized-Trees">Extremely Randomized Trees<a class="anchor-link" href="#Extremely-Randomized-Trees">&#182;</a></h2><p>This is similar to Random Forests, but goes one step further. Even the feature to split from the subset is chosen randomly! This reduces the variance of the model a bit more, but has a slightly greater increase in the bias.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The goal of this project is to benchmark supervised algorithms on multiple data sets and compare the results.</p>
-<p>From Penn benchmark datasets (<a href="https://github.com/EpistasisLab/penn-ml-benchmarks">https://github.com/EpistasisLab/penn-ml-benchmarks</a>), 166 datasets are downloaded. Six Supervised Learning models are used to analyze these datasets -</p>
-<ol>
-<li>Decision Tree</li>
-<li>Random Forest</li>
-<li>Extra Trees</li>
-<li>Gradient Boost</li>
-<li>AdaBoost</li>
-<li>XGBoost  </li>
-</ol>
-<p>Before going into the implementation, here is a short description of each algorithm.## Decision Tree<br>
-A supervised estimator that splits the population into homogeneous sets based on a significant splitter. This is an example tree:</p>
-<p><img src="./figures/dt.png" alt="drawing"/></p>
-<h3 id="Some-Terminology">Some Terminology<a class="anchor-link" href="#Some-Terminology">&#182;</a></h3><ul>
-<li>Root Node: Represents entire population</li>
-<li>Splitting: Process of dividing a node into sub-nodes</li>
-<li>Decision Node: A sub-node that splits into further sub-nodes</li>
-<li>Leaf/ Terminal Node: Nodes that do not split</li>
-<li>Pruning: When we remove sub-nodes of a decision node, this process is called pruning</li>
-<li>Branch / Sub-Tree: Sub section of entire tree</li>
-<li>Parent/Child Node: A parent node is split into child nodes</li>
-</ul>
-<h3 id="Example">Example<a class="anchor-link" href="#Example">&#182;</a></h3><p>Consider building a Decision Tree model to predict if it is safe to give a loan to a customer. There are 4 steps involved:</p>
-<p><img src="./figures/dt_cr.png" alt="drawing"/></p>
-<h3 id="How-to-choose-the-best-feature-to-split?">How to choose the best feature to split?<a class="anchor-link" href="#How-to-choose-the-best-feature-to-split?">&#182;</a></h3><p>We choose the split that gives the maximum information gain. This is inversely proportional to the impurity in a node (measure of how different the samples are). Here are some impurity indices:</p>
-<ul>
-<li><strong>Entropy</strong>: Entropy is maximum for a uniform distribution of samples.</li>
-</ul>
-<p><img src="./figures/entropy.png" height="200" width="400" alt="drawing"/></p>
-<ul>
-<li><strong>Gini Index</strong>: Gini index is maximum for homogenous samples.</li>
-</ul>
-<p><img src="./figures/gini.png" height="100" width="200" alt="drawing"/></p>
 <h2 id="Ensemble-Learning">Ensemble Learning<a class="anchor-link" href="#Ensemble-Learning">&#182;</a></h2><p>Decision trees can be simple, but often produce noisy or weak classifiers. The idea behind ensemble learning is to generate multiple hypotheses and combine them to a single classifier. When these hypotheses are independent, averaging reduces the variance of the final model.</p>
 <h2 id="Bootstrap-Aggregating-(Bagging)">Bootstrap Aggregating (Bagging)<a class="anchor-link" href="#Bootstrap-Aggregating-(Bagging)">&#182;</a></h2><ul>
 <li>Bootstrap sampling: Given a dataset D containing N samples, a sub-dataset Dsub is created by drawing N samples at random with replacement from D.</li>
