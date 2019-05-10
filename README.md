@@ -12,10 +12,10 @@ From Penn benchmark datasets at https://github.com/EpistasisLab/penn-ml-benchmar
 Multiprocessing is used to run the models faster due to the large data.  
 The accuracy of each algorithm is compared with the others' and the performance is plotted using a heat map.    
 
-## Starting the Project
+## Directory Structure
 
 This project contains these files:
 
-- `benchmark.ipynb`: This is the main project file.
+- `benchmark.ipynb`: This contains the code for benchmarking.
 - `scores.p`: Pickle file containing the accuracy of all the methods for all datasets.  
 - `result.png`: The accuracy comparison heat map.
